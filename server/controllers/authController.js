@@ -32,7 +32,7 @@ async function login(req, res) {
     if (!process.env.JWT_SECRET) {
       return res.status(500).json({ error: 'Server misconfigured: missing JWT_SECRET' });
     }
-    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { subject: String(user.id), expiresIn: '15m' });
+    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, { subject: String(user.id), expiresIn: '7d' });
     return res.json({ 
       token: token,
       user: {

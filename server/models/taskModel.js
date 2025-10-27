@@ -33,9 +33,17 @@ function updateTask(userId, id, updates) {
   const now = new Date().toISOString();
   const current = getTask(userId, id);
   if (!current) return null;
+  
   const title = updates.title ?? current.title;
-  const completed = updates.completed != null ? (updates.completed ? 1 : 0) : current.completed;
+  // Convert boolean to integer for database, handling both current (boolean) and updates
+  const currentCompletedInt = current.completed ? 1 : 0;
+  const completed = updates.completed != null ? (updates.completed ? 1 : 0) : currentCompletedInt;
+  
+  console.log('UpdateTask debug:', { userId, id, updates, current, title, completed });
+  
   const info = updateTaskStmt.run(title, completed, now, id, userId);
+  console.log('UpdateTask SQL result:', info);
+  
   if (info.changes === 0) return null;
   return { ...current, title, completed: !!completed, updated_at: now };
 }
