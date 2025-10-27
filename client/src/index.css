@@ -1,0 +1,430 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+/* Enhanced Mobile-first responsive design with depth and contrast */
+.btn {
+  @apply inline-flex items-center justify-center rounded-lg px-3 py-2 sm:px-4 text-sm font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary { 
+  @apply bg-gradient-to-r from-indigo-600 to-indigo-700 text-white border border-indigo-500/20;
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover:not(:disabled) {
+  @apply from-indigo-700 to-indigo-800;
+  box-shadow: 0 8px 25px 0 rgba(79, 70, 229, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn-success { 
+  @apply bg-gradient-to-r from-emerald-600 to-emerald-700 text-white border border-emerald-500/20;
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-success:hover:not(:disabled) {
+  @apply from-emerald-700 to-emerald-800;
+  box-shadow: 0 8px 25px 0 rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.input { 
+  @apply w-full rounded-lg border-2 border-slate-200 bg-white px-4 py-3 text-sm placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 transition-all duration-200;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), inset 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+}
+
+.input:focus {
+  @apply ring-4 ring-indigo-500/10 border-indigo-500 bg-white;
+  box-shadow: 0 4px 12px 0 rgba(79, 70, 229, 0.1), inset 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  transform: translateY(-1px);
+}
+
+.input.dark, .dark .input {
+  @apply bg-slate-800/90 border-slate-600 text-slate-100 placeholder:text-slate-400;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.input.dark:focus, .dark .input:focus {
+  @apply border-indigo-400 bg-slate-800 ring-indigo-400/20;
+  box-shadow: 0 4px 12px 0 rgba(99, 102, 241, 0.2), inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card { 
+  @apply bg-white rounded-2xl border border-slate-200/60 transition-all duration-300;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  box-shadow: 
+    0 10px 25px -3px rgba(0, 0, 0, 0.08),
+    0 4px 6px -2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.card.dark, .dark .card {
+  @apply bg-slate-800/95 border-slate-700/60;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card.dark:hover, .dark .card:hover {
+  box-shadow: 
+    0 10px 25px -3px rgba(0, 0, 0, 0.4),
+    0 4px 6px -2px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Enhanced mobile responsiveness - Mobile First Design (320px → 1440px) */
+
+/* Base styles for mobile (320px+) */
+.btn {
+  @apply text-sm px-3 py-2 min-h-[44px] touch-manipulation;
+}
+
+.card {
+  @apply rounded-2xl;
+}
+
+/* Small mobile (375px+) */
+@media (min-width: 375px) {
+  .btn {
+    @apply px-4 py-2.5;
+  }
+}
+
+/* Large mobile / Small tablet (640px+) */
+@media (min-width: 640px) {
+  .btn {
+    @apply text-base px-6 py-3;
+  }
+  
+  .card {
+    @apply rounded-3xl;
+  }
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .btn {
+    @apply px-8 py-4;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .btn {
+    @apply text-lg px-10 py-5;
+  }
+}
+
+/* Large desktop (1440px+) */
+@media (min-width: 1440px) {
+  .btn {
+    @apply text-xl px-12 py-6;
+  }
+}
+
+/* Smooth animations */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Custom animations for AuthPage */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-delayed {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 1s ease-out 0.3s both;
+}
+
+.animate-fade-in-delayed {
+  animation: fade-in-delayed 1s ease-out 0.6s both;
+}
+
+/* Enhanced input focus effects */
+.input:focus {
+  @apply ring-4 ring-indigo-500/20 border-indigo-500 shadow-lg;
+  transform: translateY(-1px);
+}
+
+/* Enhanced button hover effects */
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Glassmorphism effect */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+
+/* Mobile-first utility classes with our color palette */
+.mobile-container {
+  @apply px-4 mx-auto;
+  max-width: 320px;
+}
+
+@media (min-width: 375px) {
+  .mobile-container {
+    max-width: 375px;
+  }
+}
+
+@media (min-width: 640px) {
+  .mobile-container {
+    @apply px-6;
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-container {
+    @apply px-8;
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-container {
+    @apply px-12;
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mobile-container {
+    @apply px-16;
+    max-width: 1440px;
+  }
+}
+
+/* Color palette utilities */
+.bg-primary {
+  @apply bg-gradient-to-r from-indigo-600 to-indigo-700;
+}
+
+.bg-primary-hover {
+  @apply hover:from-indigo-700 hover:to-indigo-800;
+}
+
+.bg-success {
+  @apply bg-gradient-to-r from-emerald-600 to-emerald-700;
+}
+
+.bg-success-hover {
+  @apply hover:from-emerald-700 hover:to-emerald-800;
+}
+
+.text-primary {
+  @apply text-indigo-600 dark:text-indigo-400;
+}
+
+.text-success {
+  @apply text-emerald-600 dark:text-emerald-400;
+}
+
+.border-primary {
+  @apply border-indigo-500/30;
+}
+
+.border-success {
+  @apply border-emerald-500/30;
+}
+
+/* Touch-friendly interactive elements */
+.touch-target {
+  @apply min-h-[44px] min-w-[44px] touch-manipulation;
+}
+
+/* Responsive text scaling */
+.text-responsive-xs {
+  @apply text-xs;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-xs {
+    @apply text-sm;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-xs {
+    @apply text-base;
+  }
+}
+
+.text-responsive-sm {
+  @apply text-sm;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-sm {
+    @apply text-base;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-sm {
+    @apply text-lg;
+  }
+}
+
+.text-responsive-base {
+  @apply text-base;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-base {
+    @apply text-lg;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-base {
+    @apply text-xl;
+  }
+}
+
+.text-responsive-lg {
+  @apply text-lg;
+}
+
+@media (min-width: 640px) {
+  .text-responsive-lg {
+    @apply text-xl;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-lg {
+    @apply text-2xl;
+  }
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced animations for TasksPage */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+/* Enhanced shadows */
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.dark .shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced hover effects for mobile-first design */
+@media (hover: hover) {
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover\:shadow-3xl:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .hover\:shadow-3xl:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Improved focus states for accessibility */
+.focus\:ring-2:focus {
+  ring-width: 2px;
+}
+
+/* Enhanced mobile touch targets */
+@media (max-width: 640px) {
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
