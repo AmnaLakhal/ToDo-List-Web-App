@@ -233,22 +233,6 @@ export default function TasksPage({ tasksApi, onLogout, user }) {
         )}
 
         {toast && <Toast {...toast} onClose={() => setToast(null)} />}
-        
-        {/* Debug button - temporary */}
-        <div className="fixed top-4 left-4 z-50 p-2 bg-red-500 text-white rounded text-xs">
-          <button 
-            onClick={async () => {
-              if (items && items.length > 0) {
-                const firstTask = items[0];
-                console.log('Debug: Testing toggle for task:', firstTask);
-                await toggle(firstTask.id, !firstTask.completed);
-              }
-            }}
-            className="px-2 py-1 bg-red-600 rounded"
-          >
-            Debug Toggle
-          </button>
-        </div>
       </div>
     </div>
   )

@@ -217,13 +217,13 @@
 
 /* Mobile-first utility classes with our color palette */
 .mobile-container {
-  @apply px-4 mx-auto;
-  max-width: 320px;
+  @apply px-4 mx-auto w-full;
+  max-width: 100%;
 }
 
 @media (min-width: 375px) {
   .mobile-container {
-    max-width: 375px;
+    @apply px-5;
   }
 }
 
@@ -427,4 +427,215 @@
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
+}
+/* Enhanced mobile-first responsive breakpoints */
+/* Extra small devices (320px and up) */
+@media (min-width: 320px) {
+  .text-responsive-title {
+    @apply text-2xl;
+  }
+  
+  .spacing-responsive {
+    @apply space-y-4;
+  }
+  
+  .padding-responsive {
+    @apply p-4;
+  }
+}
+
+/* Small devices (375px and up) */
+@media (min-width: 375px) {
+  .text-responsive-title {
+    @apply text-3xl;
+  }
+  
+  .spacing-responsive {
+    @apply space-y-5;
+  }
+  
+  .padding-responsive {
+    @apply p-5;
+  }
+}
+
+/* Medium devices (640px and up) */
+@media (min-width: 640px) {
+  .text-responsive-title {
+    @apply text-4xl;
+  }
+  
+  .spacing-responsive {
+    @apply space-y-6;
+  }
+  
+  .padding-responsive {
+    @apply p-6;
+  }
+}
+
+/* Large devices (768px and up) */
+@media (min-width: 768px) {
+  .text-responsive-title {
+    @apply text-5xl;
+  }
+  
+  .spacing-responsive {
+    @apply space-y-8;
+  }
+  
+  .padding-responsive {
+    @apply p-8;
+  }
+}
+
+/* Extra large devices (1024px and up) */
+@media (min-width: 1024px) {
+  .text-responsive-title {
+    @apply text-6xl;
+  }
+  
+  .spacing-responsive {
+    @apply space-y-10;
+  }
+  
+  .padding-responsive {
+    @apply p-10;
+  }
+}
+
+/* Ultra wide devices (1440px and up) */
+@media (min-width: 1440px) {
+  .text-responsive-title {
+    @apply text-7xl;
+  }
+  
+  .spacing-responsive {
+    @apply space-y-12;
+  }
+  
+  .padding-responsive {
+    @apply p-12;
+  }
+}
+
+/* Dark mode improvements */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+  }
+}
+
+/* Enhanced focus states for better accessibility */
+.focus-visible\:ring-2:focus-visible {
+  @apply ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-800;
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 767px) {
+  .btn, .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  .input {
+    min-height: 48px;
+  }
+}
+
+/* Enhanced animations for mobile performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Improved contrast for better readability */
+.high-contrast {
+  @apply contrast-125;
+}
+
+.dark .high-contrast {
+  @apply contrast-125;
+}
+
+/* Enhanced gradient backgrounds for our color palette */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, 
+    theme('colors.indigo.500') 0%, 
+    theme('colors.indigo.600') 50%, 
+    theme('colors.indigo.700') 100%);
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, 
+    theme('colors.emerald.500') 0%, 
+    theme('colors.emerald.600') 50%, 
+    theme('colors.emerald.700') 100%);
+}
+
+.bg-gradient-neutral {
+  background: linear-gradient(135deg, 
+    theme('colors.slate.100') 0%, 
+    theme('colors.slate.200') 50%, 
+    theme('colors.slate.300') 100%);
+}
+
+.dark .bg-gradient-neutral {
+  background: linear-gradient(135deg, 
+    theme('colors.slate.700') 0%, 
+    theme('colors.slate.800') 50%, 
+    theme('colors.slate.900') 100%);
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced backdrop blur for better depth */
+.backdrop-blur-enhanced {
+  backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* Improved loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    theme('colors.slate.200') 25%, 
+    theme('colors.slate.100') 50%, 
+    theme('colors.slate.200') 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.dark .loading-shimmer {
+  background: linear-gradient(90deg, 
+    theme('colors.slate.700') 25%, 
+    theme('colors.slate.600') 50%, 
+    theme('colors.slate.700') 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Enhanced mobile navigation */
+.mobile-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border-t border-slate-200/50 dark:border-slate-700/50 p-4 z-50;
+}
+
+@media (min-width: 768px) {
+  .mobile-nav {
+    @apply hidden;
+  }
 }
